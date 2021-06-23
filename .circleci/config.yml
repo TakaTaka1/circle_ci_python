@@ -1,0 +1,30 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+    - image: taktak03docker/ci_app_python3:0.0.7
+    steps:
+      - checkout
+      - run:
+          name: Install Docker Compose
+          command : |
+            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            mv ~/docker-compose /usr/local/bin/docker-compose
+      - run:
+          name: call pytest
+          command: | 
+            set -x
+            #pytest /var/www/src/tests/test_b.py ###
+            pwd
+      - run:
+          name: stop ci_app_python3
+          command: |
+             set -x
+             cat /var/www/src/tests/test_b.py
+      - run:
+          name: test command
+          command: |
+            set -x
+            cd /var/www/src/tests/
+            pytest test_b.py
