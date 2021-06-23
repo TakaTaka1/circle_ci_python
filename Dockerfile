@@ -14,8 +14,10 @@ ENV TERM xterm
 RUN apt-get install -y vim less
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
-RUN pip install pytest
+
+WORKDIR /code
+COPY ./requirements.txt /code
+RUN pip install -r requirements.txt
 
 WORKDIR /var/www/src/
-
 COPY src/ /var/www/src/
