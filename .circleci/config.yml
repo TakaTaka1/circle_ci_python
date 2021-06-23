@@ -15,7 +15,7 @@ jobs:
           name: call pytest
           command: | 
             set -x
-            #pytest /var/www/src/tests/test_b.py ###
+            #pytest /var/www/src/tests/test_b.py
             pwd
       - run:
           name: stop ci_app_python3
