@@ -1,2 +1,2 @@
 def b(a, b):
-    return "hoge"
+    return a * b

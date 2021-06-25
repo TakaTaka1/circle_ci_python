@@ -14,17 +14,10 @@ jobs:
       - run:
           name: call pytest
           command: | 
-            set -x
-            #pytest /var/www/src/tests/test_b.py
-            pwd
+            pytest
       - run:
-          name: stop ci_app_python3
+          name: check command
           command: |
              set -x
              cat /var/www/src/tests/test_b.py
-      - run:
-          name: test command
-          command: |
-            set -x
-            cd /var/www/src/tests/
-            pytest test_b.py
+# TODO pull request投げたら CIが実行されるようにしたい
