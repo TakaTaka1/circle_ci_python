@@ -1,6 +1,5 @@
 FROM python:3
 USER root
-# TEST RUN
 
 RUN apt-get update
 RUN apt-get -y install locales && \
